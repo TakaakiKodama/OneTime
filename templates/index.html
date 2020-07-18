@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+{% block content %}
+<body>
+    <div id="app">
+      <input v-model="p">
+      <a :href="fp">Get!</a>
+    </div>
+  <form class="" action=/p/{{p}} method="post">
+    <div>
+      <div>
+        <textarea name="d" rows="8" cols="80"></textarea>
+      </div>
+      <div>
+        <button type="submit" name="button">Send!</button>
+      </div>
+    </div>
+  </form>
+</body>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    delimiters: ['[[', ']]'],
+    data: {
+      p: '',
+    },
+    computed: {
+      fp: function() {
+      return  "/p/"+this.p
+      }
+    }
+  })
+</script>
+{% endblock %}
